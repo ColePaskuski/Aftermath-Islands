@@ -1,6 +1,8 @@
 # Aftermath Islands Metaverse Inventory Save System
 
-This document will go through the save system for an inventory system for the Aftermath Islands Metaverse project. 
+This document will go through the save system for an inventory system for the Aftermath Islands Metaverse project.
+
+The Unreal Engine blueprint coding was all done by me, the Frontend Unreal Developer. The WebSocket server and backend database were done by Aftermath Islands Backend Developer. The inventory system was prebuilt for me, and I had to rework it to have a save system and to work with the backend database. This project is ongoing so this will be updated accordingly.
 
 ## Save System Overview:
 I designed and created a save system that utilizes a WebSocket Server and a backend database to save player data. The WebSocket Server serves as the communication channel, facilitating the sending and receiving of messages triggered by player actions in the game. For instance, when a player moves an item in their inventory, a message containing the relevant item variables is sent to the WebSocket. This message is then sent to the backend database, where the variables are stored for each player. This approach was specifically chosen for an MMO game with a large player base, as it allows developers to make necessary updates to the game without the need for rebuilding. This method also provides added security measures by reducing the risk of item duplication and cheating, as the database consistently maintains an accurate record of each player's inventory.
@@ -57,9 +59,17 @@ The inventory component is where code for the sent and received WebSocket messag
 
 ### Websocket Sent Message Code:
 
-To ensure synchronization between the game and the database, whenever a player makes changes to their inventory, they receive a message that removes and recreates all the items in their inventory. When the items are created, they are added to an item array, this array contains all the player’s inventory items. Each item will also have a unique identifier (Item ID) that will tell it apart from the other items any of the inventories. This process is the same for Containers and Vendors, each having their own respective arrays. See how this process works for the Player below.
+To ensure synchronization between the game and the database, whenever a player makes changes to their inventory, they receive a message (get inventory message) that removes and recreates all the items in their inventory. See how this process works for the Player below.
 
 ![Alt text](GetInventoryMessage.png)
+
+ When the items are created, they are added to an item array, this array contains all the player’s inventory items. See how items are created for the Player below. The code is the same for the Vendors and Containers.
+
+ ![Alt text](CreateItemMessage.png)
+ 
+ Each item will also have a unique identifier (Item ID) that will tell it apart from the other items any of the inventories. This process is the same for Containers and Vendors, each having their own respective arrays. 
+
+### Websocket Sent Message Process:
 
 WebSocket Messages are designed with a common base code to retrieve specific item variables related to the altered item. These item variables include quantity, slot ID, name, etc. The item variables are compared with the variables in the player item array mentioned above to find the correct Item ID for the item. Once the item ID is found, the item variables are converted into individual variables (integer, string, float, etc), which are then transformed into a JSON string containing the item information. This WebSocket message containing the item information is then sent to the backend.
 
@@ -71,3 +81,4 @@ https://blueprintue.com/blueprint/3izdf7i5/
 
 https://blueprintue.com/blueprint/glq997qx/ 
 
+Once the items are formatted into JSON they are sent to the WebSocket
