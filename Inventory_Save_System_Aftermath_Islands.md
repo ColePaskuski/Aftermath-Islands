@@ -9,7 +9,7 @@ The WebSocket is implemented as an Actor Component that can be easily attached t
 
 The process and Blueprints for the WebSocket are below
 
-**Websocket Connected Blueprint**
+### Websocket Connected Blueprint
 
 ![Alt text](WebSocket_Connected.png)
 
