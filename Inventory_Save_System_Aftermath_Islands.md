@@ -11,7 +11,7 @@ The process and Blueprints for the WebSocket are below
 
 ### Websocket Connected Blueprint
 
-
+![Alt text](WebSocket_Created.png)
 
 ### Websocket Created Blueprint
 
