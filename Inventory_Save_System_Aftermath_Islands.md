@@ -44,4 +44,4 @@ In the event that the WebSocket server crashes, all players will be disconnected
 ## Websocket Messages:
 
 ## Inventory Componenet:
-[link text](<iframe src="https://blueprintue.com/render/12tt3zjb/" scrolling="no" allowfullscreen></iframe>) 
+<iframe src="https://blueprintue.com/render/12tt3zjb/" scrolling="no" allowfullscreen></iframe>
