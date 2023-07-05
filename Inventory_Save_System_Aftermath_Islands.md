@@ -17,34 +17,37 @@ The Clubhouse level in Aftermath Islands uses three connected WebSocket’s to u
 
 ![Alt text](WebSocket_Created.png)
 
-### Websocket Connection 
+### WebSocket Connection 
 
 Upon creation, each WebSocket is immediately connected and can send and receive messages. 
 
 ![Alt text](WebSocket_Connected.png)
 
-### Websocket Sent Messages 
+### WebSocket Sent Messages 
 
 Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Containers, and Players.
 
 ![Alt text](WebSocket_Message_Sent.png)
 
-### Websocket Recieved Messages
+### WebSocket Recieved Messages
 
 Received messages are based on the JSON message received from the backend. For example, if the JSON string reads "inventory" the WebSocket creates the relevant items in the player's inventory. The code is the same for each the Vendors, Containers, and Players.
 
 ![Alt text](WebSocket_Events.png)
 
-### Websocket Disconnection 
+### WebSocket Disconnection 
 
 In the event that the WebSocket server crashes, all players will be disconnected from the game to prevent cheating. Additionally, the player will not be able to use their inventory until the WebSocket server is restored.
 
 ![Alt text](WebSocket_CrashedorError.png)
 
+### See Full WebSocket Blueprint Here: 
+
+https://blueprintue.com/blueprint/egestpq_/ 
+
 ## Websocket Messages:
 
 ## Inventory Componenet:
-https://blueprintue.com/blueprint/egestpq_/ 
 
 
- [label](<Unreal Blueprint Screenshots/WebSocket Component posted by Cole_Paskuski _ blueprintUE _ PasteBin For Unreal Engine.html>) 
+
