@@ -13,8 +13,14 @@ The process and Blueprints for the WebSocket are below
 
 ![Alt text](WebSocket_Connected.png)
 
-**Websocket Created Blueprint**
+### Websocket Created Blueprint
 
-**Websocket Messages Blueprint**
+![Alt text](WebSocket_Created.png)
 
-**Websocket Disconnected Blueprint**
+### Websocket Messages Blueprint
+
+![Alt text](WebSocket_PlayerMessage.png)
+
+### Websocket Disconnected Blueprint
+
+![Alt text](WebSocket_Disconnected.png)
