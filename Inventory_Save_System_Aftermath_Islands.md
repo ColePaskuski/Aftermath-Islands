@@ -44,5 +44,7 @@ In the event that the WebSocket server crashes, all players will be disconnected
 ## Websocket Messages:
 
 ## Inventory Componenet:
-[![Description of Image](path-to-image.png)](https://blueprintue.com/render/12tt3zjb/)
- 
+https://blueprintue.com/blueprint/egestpq_/ 
+
+
+ [label](<Unreal Blueprint Screenshots/WebSocket Component posted by Cole_Paskuski _ blueprintUE _ PasteBin For Unreal Engine.html>) 
