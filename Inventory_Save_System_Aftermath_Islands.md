@@ -1,10 +1,11 @@
 # Aftermath Islands Metaverse Inventory Save System
 
-This document will go through the save system for an inventory system for the Aftermath Islands Metaverse project.
+This document will go through the save system for an inventory system for the Aftermath Islands Metaverse project. The game is run through a pixel stream on Accelbytes servers, a pixel stream allows the game to be run through a web browser on PC and mobile phones. The game is being developed in Unreal Engine 5. 
 
-The Unreal Engine blueprint coding was all done by me, the Frontend Unreal Developer. The WebSocket server and backend database were done by Aftermath Islands Backend Developer. The inventory system was prebuilt for me, and I had to rework it to have a save system and to work with the backend database. This project is ongoing so this will be updated accordingly.
+The Blueprint/Visual coding was done by me, the Frontend Unreal Developer. The WebSocket Server and Backend Database were created by Aftermath Islands Backend Developer. The inventory system was prebuilt, and I had to rework it to have a save system that worked with a Backend Database. This project is ongoing so this document will be updated accordingly.
 
 ## Save System Overview:
+
 I designed and created a save system that utilizes a WebSocket Server and a Backend Database to save player data. The WebSocket Server will send and receive messages when a certain action is done by the player in the game. For example, when a player moves an item in their inventory, a message containing the relevant item variables is sent to the WebSocket Server. The variables are then formatted into a JSON string which is the message, this message is then sent to the Backend Database. Once the Backend receives the message the JSON string is broken back down into individual variables and are stored in the Database. 
 
 This approach was chosen because Aftermath Islands is an MMO game that will have a large amount of daily active users. By having a Backend system handling the inventory item actions this will allow future developers to make necessary updates to the game without the need for rebuilding. For example, if a player needs an item added to their inventory this can be done through the Backend without needing the item to be placed in the level. This approach also provides added security measures by reducing the risk of item duplication and cheating, as the database consistently maintains an accurate record of each player's inventory.
