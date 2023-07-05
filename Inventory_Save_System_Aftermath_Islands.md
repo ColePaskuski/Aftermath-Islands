@@ -9,26 +9,39 @@ The WebSocket is implemented as an Actor Component that can be easily attached t
 
 The process and Blueprints for the WebSocket are below, this is all inside of one blueprint.
 
-### Websocket Created Blueprint
+## Websocket's:
+
+### Websocket Creation
 
 The Clubhouse level in Aftermath Islands uses three connected WebSocket’s to use the inventory system (these include Vendors, Containers, and Players) Each of these WebSocket’s is connected to its own WebSocket Server on the same Port. These custom events are triggered upon the creation/spawning of the respective Actor.
 
 ![Alt text](WebSocket_Created.png)
 
-### Websocket Connection Blueprint
+### Websocket Connection 
 
-Upon creation, each WebSocket is immediately connected and can send and receive messages. Sent messages are triggered when a particular action is executed, such as when a player moves an item. 
+Upon creation, each WebSocket is immediately connected and can send and receive messages. 
 
 ![Alt text](WebSocket_Connected.png)
 
-### Websocket Events Blueprint
+### Websocket Sent Messages 
 
-Received messages are based on the JSON message received from the backend. For example, if the JSON string reads "inventory,” the WebSocket creates the relevant items in the player's inventory.
+Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Containers, and Players.
+
+![Alt text](WebSocket_Message_Sent.png)
+
+### Websocket Recieved Messages
+
+Received messages are based on the JSON message received from the backend. For example, if the JSON string reads "inventory" the WebSocket creates the relevant items in the player's inventory. The code is the same for each the Vendors, Containers, and Players.
 
 ![Alt text](WebSocket_Events.png)
 
-### Websocket Disconnected Blueprint
+### Websocket Disconnection 
 
 In the event that the WebSocket server crashes, all players will be disconnected from the game to prevent cheating. Additionally, the player will not be able to use their inventory until the WebSocket server is restored.
 
 ![Alt text](WebSocket_CrashedorError.png)
+
+## Websocket Messages:
+
+## Inventory Componenet:
+[link text](<iframe src="https://blueprintue.com/render/12tt3zjb/" scrolling="no" allowfullscreen></iframe>) 
