@@ -35,6 +35,12 @@ Received messages are based on the JSON message received from the backend. For e
 
 ![Alt text](WebSocket_Events.png)
 
+### WebSocket Message Events
+
+The received messages are executed in the Inventory Component, each message is run through a custom event running on the owning client. 
+
+![Alt text](WebSocket_ReceivedMessages.png)
+
 ### WebSocket Disconnection 
 
 In the event that the WebSocket server crashes, all players will be disconnected from the game to prevent cheating. Additionally, the player will not be able to use their inventory until the WebSocket server is restored.
@@ -49,16 +55,19 @@ https://blueprintue.com/blueprint/egestpq_/
 
 The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be made by any of the Vendors, Containers, and Players. 
 
-### Websocket Message Code:
+### Websocket Sent Message Code:
 
-To ensure synchronization between the game and the database, whenever a player makes changes to their inventory, they receive a message that removes and recreates all the items in their inventory. When the items are created, they are added to an item array, this array contains all the player’s inventory items. Each item will also have a unique identifier (Item ID) that will tell it apart from the other items any of the inventories. This process is the same for Containers and Vendors, each having their own respective arrays.
+To ensure synchronization between the game and the database, whenever a player makes changes to their inventory, they receive a message that removes and recreates all the items in their inventory. When the items are created, they are added to an item array, this array contains all the player’s inventory items. Each item will also have a unique identifier (Item ID) that will tell it apart from the other items any of the inventories. This process is the same for Containers and Vendors, each having their own respective arrays. See how this process works for the Player below.
+
+![Alt text](GetInventoryMessage.png)
 
 WebSocket Messages are designed with a common base code to retrieve specific item variables related to the altered item. These item variables include quantity, slot ID, name, etc. The item variables are compared with the variables in the player item array mentioned above to find the correct Item ID for the item. Once the item ID is found, the item variables are converted into individual variables (integer, string, float, etc), which are then transformed into a JSON string containing the item information. This WebSocket message containing the item information is then sent to the backend.
 
-### See Full WebSocket Messages Blueprint Here: 
+### See WebSocket Sent Messages Blueprint Here: 
 
-https://blueprintue.com/blueprint/ndzz1ioe/
+https://blueprintue.com/blueprint/3izdf7i5/
 
+### See Items broken Down and Formatted to a JSON string here: 
 
-
+https://blueprintue.com/blueprint/glq997qx/ 
 
