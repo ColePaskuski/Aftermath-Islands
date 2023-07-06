@@ -23,39 +23,33 @@ The Clubhouse level in Aftermath Islands has three Blueprints that have a WebSoc
 
 ### WebSocket Initialization
 
-The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.\
+The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.
 
 ![Alt text](WebSocket_Initialization.png)
 
-### Websocket Creation
-
-Upon creation, each WebSocket is immediately connected and can send and receive messages. The custom events are triggered upon the creation/spawning of the respective Blueprint..
-
-![Alt text](Websocket_Creation.png)
-
-### WebSocket Connection 
+### Websocket Creation and Connection
 
 Upon creation, each WebSocket is immediately connected and can send and receive messages. 
 
-![Alt text](WebSocket_Connected.png)
+![Alt text](Websocket_Creation_and_Connection.png)
 
-### WebSocket Sent Messages 
+### WebSocket Send Message 
 
 Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Containers, and Players.
 
-![Alt text](WebSocket_Message_Sent.png)
+![Alt text](Websocket_Send_Message.png)
 
-### WebSocket Recieved Messages
+### WebSocket Receive Message
 
-Received messages are based on the JSON message received from the backend. For example, if the JSON string reads "inventory" the WebSocket creates the relevant items in the player's inventory. The code is the same for each the Vendors, Containers, and Players.
+Received messages are also triggered when a particular action is executed, such as when a opens their inventory. The received message will trigger a Received Message Custom Event depending on what JSON type is being sent by the WebSocket Server. The code is the same for each of the Vendors, Containers, and Players.
 
-![Alt text](WebSocket_Events.png)
+![Alt text](Websocket_Receive_Message.png)
 
-### WebSocket Message Events
+### WebSocket Received Message Events
 
-The received messages are executed in the Inventory Component, each message is run through a custom event running on the owning client. 
+Received messages are based on the JSON message received from the WebSocket Server. For example, if the JSON type string reads "inventory,” the WebSocket creates the relevant items in the player's inventory. The events for the Vendors, Containers, and Players will be different from one another because they have to execute different code for different WebSocket’s.
 
-![Alt text](WebSocket_ReceivedMessages.png)
+![Alt text](Websocket_Received_Message_Events.png)
 
 ### WebSocket Disconnection 
 
