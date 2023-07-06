@@ -1,16 +1,22 @@
 # Aftermath Islands Metaverse Inventory Save System
 
-This document will go through the save system for the inventory for the Aftermath Islands Metaverse project. Aftermath Islands is owned by Liquid Avatar Technologies and is an open-world multiplayer online game (MMO). Aftermath Islands is playable through a pixel stream which allows the game to be run through a web browser on PC and mobile phones and does not require any download from the player. The game is currently being developed in Unreal Engine 5. The first island (Clubhouse Island) was released to the public as an open beta in June 2023. This project is ongoing, so this document will be updated accordingly.
+This document will go through the Save System for the inventory for the Aftermath Islands Metaverse project. Aftermath Islands is owned by Liquid Avatar Technologies and is an open-world multiplayer online game (MMO). Aftermath Islands is playable through a pixel stream which allows the game to be run through a web browser on PC and mobile phones and does not require any download from the player. The game is currently being developed in Unreal Engine 5. The first island (Clubhouse Island) was released to the public as an open beta in June 2023. This project is ongoing, so this document will be updated accordingly.
+
+I was responsible for coding the Save System for the inventory through Blueprints. The WebSocket Server and Backend Database were developed by Aftermath Islands Backend Developer. The inventory system was premade, and I had to rework it to work with a Backend Database and save system. 
 
 ## Save System Overview:
 
-The save system utilizes a WebSocket Server and a Backend Database to save player data. The WebSocket Server will send and receive messages when a certain action is done by the player in the game. For example, when a player moves an item in their inventory, a message containing the relevant item variables (slot ID, name, quantity, etc) is sent to the WebSocket Server. The variables are then formatted into a JSON string which is the message. This message is then sent to the Backend Database. Once the Backend receives the message, the JSON string is broken back down into individual variables and stored in the Database. The variables are stored based on the inventory components Universally Unique Identifier (UUID). 
+The Save System utilizes a WebSocket Server and a Backend Database to save player data. The WebSocket Server will send and receive messages when a certain action is done by the player in the game. For example, when a player moves an item in their inventory, a message containing the relevant item variables (slot ID, name, quantity, etc) is sent to the WebSocket Server. The variables are then formatted into a JSON string which is the message. This message is then sent to the Backend Database. Once the Backend receives the message, the JSON string is broken back down into individual variables and stored in the Database. The variables are stored based on the inventory components Universally Unique Identifier (UUID). 
 
-The WebSocket code is implemented as an Actor Component that can be easily attached to any Actor, Pawn or Character requiring a connection to the WebSocket Server. An Actor Component was chosen since it enables modular coding by the reuse of the same component across several blueprints. 
+The WebSocket code is implemented as an Actor Component that can be easily attached to any Blueprint requiring a connection to the WebSocket Server. An Actor Component was chosen since it enables modular coding by the reuse of the same component across several Blueprints. 
 
 ## Inventory Component Overview:
 
-Each actor that needs an inventory will have an inventory actor component. The Clubhouse Island level has three actors that will have an inventory component (Vendors, Crafting Tables and each Player). The inventory for each Player, Vendor and Crafting Table is unique through a UUID. This allows the Backend to easily track the inventory contents for each inventory component in the level. The UUID is set for the player when they log into their Liquid Avatar account when starting the game. The UUID for Vendors and Crafting Tables is set in Unreal Engine. 
+Each actor that needs an inventory will have an inventory Actor Component. The Clubhouse Island level has three Blueprints that have an inventory component (Vendors, Crafting Tables and each Player). The inventory for each Player, Vendor and Crafting Table is unique through a UUID. This allows the Backend to easily track the inventory contents for each inventory component in the level. The UUID is set for the player when they log into their Liquid Avatar account when starting the game. The UUID for Vendors and Crafting Tables is set in Unreal Engine. 
+
+##
+
+
 
 ## Websocket's:
 
