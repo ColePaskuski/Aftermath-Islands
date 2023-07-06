@@ -51,11 +51,11 @@ Received messages are based on the JSON message received from the WebSocket Serv
 
 ![Alt text](Websocket_Received_Message_Events.png)
 
-### WebSocket Disconnection 
+### WebSocket Server Crash or Disconnect
 
-In the event that the WebSocket server crashes, all players will be disconnected from the game to prevent cheating. Additionally, the player will not be able to use their inventory until the WebSocket server is restored.
+In the event that the WebSocket server crashes or disconnects, all players will be disconnected/kicked from the game. This is done to prevent any duplication of items or cheating while the server is offline. Additionally, the player will not be able to use their inventory until the WebSocket server is restored. 
 
-![Alt text](WebSocket_CrashedorError.png)
+![Alt text](WebSocket_Server_Crash_or_Disconnect.png)
 
 ### See Full WebSocket Blueprint Here: 
 
@@ -65,17 +65,19 @@ https://blueprintue.com/blueprint/egestpq_/
 
 The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be made by any of the Vendors, Containers, and Players. 
 
-### Websocket Sent Message Code:
+## WebSocket Send/Receive Message Code Examples
 
-To ensure synchronization between the game and the database, whenever a player makes changes to their inventory, they receive a message (get inventory message) that removes and recreates all the items in their inventory. See how this process works for the Player below.
+### WebSocket Get Inventory Message Code Example
 
-![Alt text](GetInventoryMessage.png)
+To ensure synchronization between the game and the database, whenever a player makes changes to their inventory (move an item, open their inventory, etc.), they receive a message that removes and recreates all the items in their inventory. This message is the get inventory message. See an example of the get inventory message below.
 
- When the items are created, they are added to an item array, this array contains all the player’s inventory items. See how items are created for the Player below. The code is the same for the Vendors and Containers.
+![Alt text](Get_Inventory_Message.png)
 
- ![Alt text](CreateItemMessage.png)
- 
- Each item will also have a unique identifier (Item ID) that will tell it apart from the other items any of the inventories. This process is the same for Containers and Vendors, each having their own respective arrays. 
+### Create Inventory Items Code Example
+
+ When the items are created, they are added to an array that contains all the player’s inventory items. Each item will have a UUID (Item ID) that will tell it apart from the other items in the inventories of any Player, Vendor, or Crafting Table in the level. This process is the same for Crafting Tables and Vendors, each one having its own respective arrays. See how this process works for the Player below.
+
+ ![Alt text](Create_Inventory_Items.png)
 
 ### Websocket Sent Message Process:
 
