@@ -13,16 +13,21 @@ The WebSocket code is implemented as an Actor Component that can be easily attac
 ## Inventory Component Overview:
 
 Each actor that needs an inventory will have an inventory Actor Component. The Clubhouse Island level has three Blueprints that have an inventory component (Vendors, Crafting Tables and each Player). The inventory for each Player, Vendor and Crafting Table is unique through a UUID. This allows the Backend to easily track the inventory contents for each inventory component in the level. The UUID is set for the player when they log into their Liquid Avatar account when starting the game. The UUID for Vendors and Crafting Tables is set in Unreal Engine. 
-
 ##
 
-
+This approach was chosen because Aftermath Islands will be a large MMO game that will have a large amount of daily active users. Having a Backend Database handle the inventory item data and actions will allow future developers to make necessary updates to the game without the need for rebuilding. For example, if a player needs an item added to their inventory, this can be done through the Backend without needing the item to be placed in the level. This approach also provides added security measures by reducing the risk of item duplication and cheating, as the Database consistently maintains an accurate record of each inventory.
 
 ## Websocket's:
 
+The Clubhouse level in Aftermath Islands has three Blueprints that have a WebSocket and an inventory component (these include Vendors, Crafting Tables, and each Player). Each of these WebSocket’s is connected to its own WebSocket Server on the same Port. 
+
+### WebSocket Initialization
+ 
+The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.
+
 ### Websocket Creation
 
-The Clubhouse level in Aftermath Islands uses three connected WebSocket’s to use the inventory system (these include Vendors, Containers, and Players) Each of these WebSocket’s is connected to its own WebSocket Server on the same Port. These custom events are triggered upon the creation/spawning of the respective Actor.
+Upon creation, each WebSocket is immediately connected and can send and receive messages. The custom events are triggered upon the creation/spawning of the respective Blueprint..
 
 ![Alt text](WebSocket_Created.png)
 
