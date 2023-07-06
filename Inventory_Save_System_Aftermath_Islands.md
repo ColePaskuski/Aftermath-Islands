@@ -22,14 +22,16 @@ This approach was chosen because Aftermath Islands will be a large MMO game that
 The Clubhouse level in Aftermath Islands has three Blueprints that have a WebSocket and an inventory component (these include Vendors, Crafting Tables, and each Player). Each of these WebSocket’s is connected to its own WebSocket Server on the same Port. 
 
 ### WebSocket Initialization
- 
-The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.
+
+The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.\
+
+![Alt text](WebSocket_Initialization.png)
 
 ### Websocket Creation
 
 Upon creation, each WebSocket is immediately connected and can send and receive messages. The custom events are triggered upon the creation/spawning of the respective Blueprint..
 
-![Alt text](WebSocket_Created.png)
+![Alt text](Websocket_Creation.png)
 
 ### WebSocket Connection 
 
