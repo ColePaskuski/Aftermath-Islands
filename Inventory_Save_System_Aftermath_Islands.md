@@ -87,7 +87,7 @@ This Blueprint Graph is inside of the inventory component and will show an examp
 
 The process starts with breaking down the item into individual variables. These variables are then checked against the item array for the respective inventory component to get the Item ID. Once the Item ID is found, the message will be sent to the WebSocket Server.
 
-You can see an example of the process in the Blueprint Below:
+See the Blueprint below:
 
 https://blueprintue.com/blueprint/3izdf7i5/ 
 
@@ -95,7 +95,7 @@ https://blueprintue.com/blueprint/3izdf7i5/
 
 The item variables are compared with the variables in the player item array mentioned above to find the correct Item ID for the item. Once the item ID is found, the item variables are converted into individual variables (integer, string, float, etc.), which are then transformed into a JSON string containing the item information. This WebSocket message containing the item information is then sent to the backend.
 
-See Blueprint for this Function Below:
+See the Blueprint below:
 
 https://blueprintue.com/blueprint/a9shg80e/ 
 
