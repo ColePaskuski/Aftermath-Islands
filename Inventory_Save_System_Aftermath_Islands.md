@@ -25,37 +25,37 @@ The Clubhouse level in Aftermath Islands has three Blueprints that have a WebSoc
 
 The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.
 
-![Alt text](Base_Unreal_Blueprint_Screenshots/WebSocket_Initialization.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/WebSocket_Initialization.png>)
 
 ### Websocket Creation and Connection
 
 Upon creation, each WebSocket is immediately connected and can send and receive messages. 
 
-![Alt text](Websocket_Creation_and_Connection.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Creation_and_Connection.png>)
 
 ### WebSocket Send Message 
 
 Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Containers, and Players.
 
-![Alt text](Websocket_Send_Message.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Send_Message.png>)
 
 ### WebSocket Receive Message
 
 Received messages are also triggered when a particular action is executed, such as when a opens their inventory. The received message will trigger a Received Message Custom Event depending on what JSON type is being sent by the WebSocket Server. The code is the same for each of the Vendors, Containers, and Players.
 
-![Alt text](Websocket_Receive_Message.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Receive_Message.png>)
 
 ### WebSocket Received Message Events
 
 Received messages are based on the JSON message received from the WebSocket Server. For example, if the JSON type string reads "inventory,” the WebSocket creates the relevant items in the player's inventory. The events for the Vendors, Containers, and Players will be different from one another because they have to execute different code for different WebSocket’s.
 
-![Alt text](Websocket_Received_Message_Events.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Received_Message_Events.png>)
 
 ### WebSocket Server Crash or Disconnect
 
 In the event that the WebSocket server crashes or disconnects, all players will be disconnected/kicked from the game. This is done to prevent any duplication of items or cheating while the server is offline. Additionally, the player will not be able to use their inventory until the WebSocket server is restored. 
 
-![Alt text](WebSocket_Server_Crash_or_Disconnect.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/WebSocket_Server_Crash_or_Disconnect.png>)
 
 ### See Full WebSocket Blueprint Here: 
 
@@ -73,13 +73,13 @@ WebSocket Messages are designed with a common base code to retrieve specific ite
 
 To ensure synchronization between the game and the database, whenever a player makes changes to their inventory (move an item, open their inventory, etc.), they receive a message that removes and recreates all the items in their inventory. This message is the get inventory message. See an example of the get inventory message below.
 
-![Alt text](Get_Inventory_Message.png)
+![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Get_Inventory_Message.png>)
 
 ### Create Inventory Items Code Example
 
  When the items are created, they are added to an array that contains all the player’s inventory items. Each item will have a UUID (Item ID) that will tell it apart from the other items in the inventories of any Player, Vendor, or Crafting Table in the level. This process is the same for Crafting Tables and Vendors, each one having its own respective arrays. See how this process works for the Player below.
 
- ![Alt text](Create_Inventory_Items.png)
+ ![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Create_Inventory_Items.png>)
 
 ### WebSocket Sent Messages Example 
 
