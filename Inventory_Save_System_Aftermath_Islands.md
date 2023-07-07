@@ -2,7 +2,7 @@
 
 This document will go through the Save System for the inventory for the Aftermath Islands Metaverse project. Aftermath Islands is owned by Liquid Avatar Technologies and is an open-world multiplayer online game (MMO). Aftermath Islands is playable through a pixel stream which allows the game to be run through a web browser on PC and mobile phones and does not require any download from the player. The game is currently being developed in Unreal Engine 5. The first island (Clubhouse Island) was released to the public as an open beta in June 2023. This project is ongoing, so this document will be updated accordingly.
 
-I was responsible for coding the Save System for the inventory through Blueprints. The WebSocket Server and Backend Database were developed by Aftermath Islands Backend Developer. The inventory system was premade, and I had to rework it to work with a Backend Database and save system. 
+I was responsible for coding the Save System for the inventory through Blueprints. The WebSocket Server and Backend Database were developed by Aftermath Islands Backend Developer. The inventory system was premade, and I had to rework it to work with a Backend Database and Save System. 
 
 ## Save System Overview:
 
@@ -35,19 +35,19 @@ Upon creation, each WebSocket is immediately connected and can send and receive 
 
 ### WebSocket Send Message 
 
-Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Containers, and Players.
+Sent messages are triggered when a particular action is executed, such as when a player moves an item. The code is the same for each the Vendors, Crafting Tables, and Players.
 
 ![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Send_Message.png>)
 
 ### WebSocket Receive Message
 
-Received messages are also triggered when a particular action is executed, such as when a opens their inventory. The received message will trigger a Received Message Custom Event depending on what JSON type is being sent by the WebSocket Server. The code is the same for each of the Vendors, Containers, and Players.
+Received messages are also triggered when a particular action is executed, such as when a opens their inventory. The received message will trigger a Received Message Custom Event depending on what JSON type is being sent by the WebSocket Server. The code is the same for each of the Vendors, Crafting Tables, and Players.
 
 ![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Receive_Message.png>)
 
 ### WebSocket Received Message Events
 
-Received messages are based on the JSON message received from the WebSocket Server. For example, if the JSON type string reads "inventory,” the WebSocket creates the relevant items in the player's inventory. The events for the Vendors, Containers, and Players will be different from one another because they have to execute different code for different WebSocket’s.
+Received messages are based on the JSON message received from the WebSocket Server. For example, if the JSON type string reads "inventory,” the WebSocket creates the relevant items in the player's inventory. The events for the Vendors, Crafting Tables, and Players will be different from one another because they have to execute different code for different WebSocket’s.
 
 ![Alt text](<Unreal_Blueprint_Images/Inventory Save System/Websocket_Received_Message_Events.png>)
 
@@ -63,7 +63,7 @@ https://blueprintue.com/blueprint/egestpq_/
 
 ## Inventory Componenet:
 
-The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be made by any of the Vendors, Crafting Tables, and Players. 
+The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be executed by any of the Vendors, Crafting Tables, and Players. 
 
 WebSocket Messages are designed with a common base code to retrieve specific item variables related to the altered item. These item variables include quantity, slot ID, name, template ID, item ID, money, username (UUID), and durability. There are other variables, but those are the main ones used in every message. 
 
