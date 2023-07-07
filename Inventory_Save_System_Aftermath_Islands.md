@@ -63,7 +63,7 @@ https://blueprintue.com/blueprint/egestpq_/
 
 ## Inventory Componenet:
 
-The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be executed by any of the Vendors, Crafting Tables, and Players. 
+The inventory component is where code for the sent and received WebSocket messages are executed.  There is a separate message for each action that can be made by any of the Vendors, Crafting Tables, and Players. 
 
 WebSocket Messages are designed with a common base code to retrieve specific item variables related to the altered item. These item variables include quantity, slot ID, name, template ID, item ID, money, username (UUID), and durability. There are other variables, but those are the main ones used in every message. 
 
