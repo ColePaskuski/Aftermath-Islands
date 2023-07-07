@@ -25,7 +25,7 @@ The Clubhouse level in Aftermath Islands has three Blueprints that have a WebSoc
 
 The custom events are triggered upon the code being executed in the respective Blueprint, which happens at begin play. The events will initialize the creation of each WebSocket for Vendors, Crafting Tables, and each Player.
 
-![Alt text](<New folder/WebSocket_Initialization.png>)
+![Alt text](Base_Unreal_Blueprint_Screenshots/WebSocket_Initialization.png)
 
 ### Websocket Creation and Connection
 
