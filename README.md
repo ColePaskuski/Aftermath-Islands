@@ -92,7 +92,7 @@ See the Blueprint below:
 https://blueprintue.com/blueprint/3izdf7i5/ 
 
  ### Get Item ID Code Example
-
+ 
 The item variables are compared with the variables in the player item array mentioned above to find the correct Item ID for the item. Once the item ID is found, the item variables are converted into individual variables (integer, string, float, etc.), which are then transformed into a JSON string containing the item information. This WebSocket message containing the item information is then sent to the backend.
 
 See the Blueprint below:
